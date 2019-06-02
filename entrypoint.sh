@@ -20,7 +20,7 @@ fi
 # from what was previously used in the volume.
 chown -R squeezeboxserver:squeezeboxserver $SQUEEZE_VOL
 
-echo 'nameserver $CONTAINER_DNS' > /etc/resolv.conf
+echo 'nameserver 8.8.8.8' > /etc/resolv.conf
 
 exec runuser -u squeezeboxserver -- /start-squeezebox.sh "$@"
 
