@@ -31,7 +31,7 @@ RUN url=$(curl "$PACKAGE_VERSION_URL" | sed 's/_all\.deb/_amd64\.deb/') && \
 RUN userdel squeezeboxserver
 
 VOLUME $SQUEEZE_VOL
-EXPOSE 3483 3483/udp 9000 9090 40000-49999
+EXPOSE 3483 3483/udp 9000 9090 40000-49999 443 80
 
 COPY entrypoint.sh /entrypoint.sh
 COPY start-squeezebox.sh /start-squeezebox.sh
