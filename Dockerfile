@@ -5,7 +5,7 @@ ENV SQUEEZE_VOL /srv/squeezebox
 ENV LANG C.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 ENV PACKAGE_VERSION_URL=http://www.mysqueezebox.com/update/?version=7.9.0&revision=1&geturl=1&os=deb
-ENV CONTAINER_DNS 8.8.8.8
+ENV CONTAINER_DNS 192.168.100.1
 ENV TZ Australia/Melbourne
 
 RUN apt-get update && \
@@ -31,7 +31,7 @@ RUN url=$(curl "$PACKAGE_VERSION_URL" | sed 's/_all\.deb/_amd64\.deb/') && \
 RUN userdel squeezeboxserver
 
 VOLUME $SQUEEZE_VOL
-EXPOSE 3483 3483/udp 9000 9090 40000-49999 443 80
+EXPOSE 3483 3483/udp 9000 9090 443 80
 
 COPY entrypoint.sh /entrypoint.sh
 COPY start-squeezebox.sh /start-squeezebox.sh
